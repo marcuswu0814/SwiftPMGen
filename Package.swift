@@ -6,6 +6,7 @@ import PackageDescription
 let package = Package(
     name: "SwiftPMGen",
     dependencies: [
+        .package(url: "https://github.com/marcuswu0814/SwiftCLIToolbox", .branch("master"))
     ],
     targets: [
         .target(
@@ -16,7 +17,7 @@ let package = Package(
             dependencies: ["SwiftPMGen"]),
         .target(
             name: "SwiftPMGenCore",
-            dependencies: []),
+            dependencies: ["SwiftCLIToolbox"]),
         .testTarget(
             name: "SwiftPMGenCoreTests",
             dependencies: ["SwiftPMGenCore"]),
