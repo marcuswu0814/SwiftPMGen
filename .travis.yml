@@ -1,0 +1,9 @@
+language: objective-c
+os: osx
+osx_image: xcode10
+env: SWIFT_VERSION=4.2
+script:
+  - make test
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -J 'SwiftPMGen'
+
