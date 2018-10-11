@@ -1,5 +1,5 @@
 import XCTest
-@testable import SwiftPMGenCore
+import SwiftPMGenCore
 
 final class MakefileGeneratorTests: XCTestCase {
     

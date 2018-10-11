@@ -1,6 +1,8 @@
-class MakefileGenerator {
+public class MakefileGenerator {
     
-    func content(withProdName prodName: String, prodNameForHomebrew: String) -> String {
+    public init() {}
+    
+    public func content(withProdName prodName: String, prodNameForHomebrew: String) -> String {
         return """
         PREFIX?=/usr/local
         
