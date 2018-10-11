@@ -10,32 +10,32 @@ public class MakefileGenerator {
         PROD_NAME_HOMEBREW=\(prodNameForHomebrew)
         
         build:
-            swift build --disable-sandbox -c release -Xswiftc -static-stdlib
+        \tswift build --disable-sandbox -c release -Xswiftc -static-stdlib
         
         build-for-linux:
-            swift build --disable-sandbox -c release
+        \tswift build --disable-sandbox -c release
         
         run:
-            .build/release/$(PROD_NAME)
+        \t.build/release/$(PROD_NAME)
         
         test: xcode
-            set -o pipefail && xcodebuild -scheme "${PROD_NAME}-Package" -enableCodeCoverage YES clean build test | xcpretty
+        \tset -o pipefail && xcodebuild -scheme "${PROD_NAME}-Package" -enableCodeCoverage YES clean build test | xcpretty
         
         lint:
-            swiftlint
+        \tswiftlint
         
         update:
-            swift package update
+        \tswift package update
         
         clean:
-            swift package clean
+        \tswift package clean
         
         xcode:
-            swift package generate-xcodeproj
+        \tswift package generate-xcodeproj
         
         install: build
-            mkdir -p "$(PREFIX)/bin"
-            cp -f ".build/release/$(PROD_NAME)" "$(PREFIX)/bin/$(PROD_NAME_HOMEBREW)"
+        \tmkdir -p "$(PREFIX)/bin"
+        \tcp -f ".build/release/$(PROD_NAME)" "$(PREFIX)/bin/$(PROD_NAME_HOMEBREW)"
         """
     }
     
