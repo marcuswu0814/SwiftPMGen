@@ -1,9 +1,8 @@
-language: objective-c
+language: swift
 os: osx
-osx_image: xcode10
-env: SWIFT_VERSION=4.2
+osx_image: xcode9
 script:
   - make test
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -J 'SwiftPMGen'
+  - bash <(curl -s https://codecov.io/bash) -J 'SwiftPMGen' -J 'SwiftPMGenCore'
 
